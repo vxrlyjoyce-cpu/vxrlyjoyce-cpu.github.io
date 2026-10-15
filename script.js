@@ -1,15 +1,15 @@
 // ===== Settings =====
 const GITHUB_USERNAME = "vxrlyjoyce-cpu";
 
-const $ = (id) => document.getElementById(id);
+const \$ = (id) => document.getElementById(id);
 let allProjects = [];
 
 // ----- Footer year -----
-$("year").textContent = new Date().getFullYear();
+\$("year").textContent = new Date().getFullYear();
 
 // ----- Mobile menu -----
-const menuToggle = $("menuToggle");
-const mainMenu = $("mainMenu");
+const menuToggle = \$("menuToggle");
+const mainMenu = \$("mainMenu");
 menuToggle.addEventListener("click", () => {
   const open = mainMenu.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(open));
@@ -23,10 +23,10 @@ mainMenu.addEventListener("click", (e) => {
 
 // ----- Light / dark theme switch (my own feature) -----
 const root = document.documentElement;
-const themeToggle = $("themeToggle");
+const themeToggle = \$("themeToggle");
 function applyTheme(theme) {
   root.dataset.theme = theme;
-  themeToggle.innerHTML = theme === "dark" ? "&#9728;" : "&#9790;";
+  themeToggle.innerHTML = theme === "dark" ? "☀" : "☾";
   themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
 }
 let savedTheme = null;
@@ -47,11 +47,12 @@ photo.addEventListener("error", () => {
   );
 }, { once: true });
 
-// ----- Projects from data/projects.json -----
+// ----- Projects from project.json -----
 async function loadProjects() {
-  const msg = $("projectsMessage");
+  const msg = \$("projectsMessage");
   try {
-    const res = await fetch("data/projects.json");
+    // FIXED: Changed path from "data/projects.json" to match your root "project.json" file
+    const res = await fetch("project.json");
     if (!res.ok) throw new Error("HTTP " + res.status);
     allProjects = await res.json();
     buildFilters();
@@ -65,7 +66,7 @@ async function loadProjects() {
 }
 
 function buildFilters() {
-  const bar = $("filterBar");
+  const bar = \$("filterBar");
   const techs = ["All", ...new Set(allProjects.flatMap((p) => p.technologies))];
   techs.forEach((t) => {
     const b = document.createElement("button");
@@ -83,7 +84,7 @@ function buildFilters() {
 }
 
 function renderProjects(tech) {
-  const list = $("projectsList");
+  const list = \$("projectsList");
   list.innerHTML = "";
   allProjects
     .filter((p) => tech === "All" || p.technologies.includes(tech))
@@ -97,7 +98,9 @@ function buildCard(p) {
   const shot = document.createElement("div");
   shot.className = "shot";
   const img = document.createElement("img");
-  img.src = p.screenshot.includes("/") ? p.screenshot : "images/" + p.screenshot;
+  
+  // NOTE: If screenshots don't show up, verify your root "images" folder exists
+  img.src = p.screenshot.includes("/") ? p.screenshot : p.screenshot;
   img.alt = "Screenshot of " + p.title;
   img.loading = "lazy";
   img.addEventListener("error", () => { img.remove(); shot.classList.add("no-img"); }, { once: true });
@@ -127,9 +130,10 @@ function buildCard(p) {
 
 // ----- Latest GitHub repositories -----
 async function loadRepos() {
-  const list = $("reposList");
-  const msg = $("reposMessage");
-  const url = https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=5;
+  const list = \$("reposList");
+  const msg = \$("reposMessage");
+  // FIXED: Added backticks around the API URL string to prevent crash syntax errors
+  const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=5`;
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error("HTTP " + res.status);
@@ -160,21 +164,21 @@ async function loadRepos() {
 }
 
 // ----- Contact form validation -----
-const form = $("contactForm");
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const form = \$("contactForm");
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}\$/;
 
 function check(input, errorId, message) {
-  $(errorId).textContent = message;
+  \$(errorId).textContent = message;
   input.classList.toggle("invalid", message !== "");
   return message === "";
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = $("formName");
-  const email = $("formEmail");
-  const text = $("formMessage");
-  const thanks = $("formThanks");
+  const name = \$("formName");
+  const email = \$("formEmail");
+  const text = \$("formMessage");
+  const thanks = \$("formThanks");
   thanks.hidden = true;
 
   const emailValue = email.value.trim();
@@ -191,7 +195,7 @@ form.addEventListener("submit", (e) => {
 });
 
 // ----- Back to top button -----
-const backToTop = $("backToTop");
+const backToTop = \$("backToTop");
 window.addEventListener("scroll", () => {
   backToTop.classList.toggle("show", window.scrollY > 400);
 });
