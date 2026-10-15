@@ -5,7 +5,7 @@
     "technologies": ["HTML", "CSS", "JavaScript"],
     "role": "Designer and developer",
     "screenshot": "portfolio.png",
-    "link": "https://github.com/vxrlyjoyce-cpu/vxrlyjoyce-cpu.github.io"
+    "link": "https://github.com"
   },
   {
     "title": "Grade Calculator",
@@ -13,7 +13,7 @@
     "technologies": ["HTML", "JavaScript"],
     "role": "Solo developer",
     "screenshot": "grade-calculator.png",
-    "link": "https://github.com/vxrlyjoyce-cpu/grade-calculator"
+    "link": "https://github.com"
   },
   {
     "title": "Student Task Tracker",
@@ -21,6 +21,6 @@
     "technologies": ["HTML", "CSS", "JavaScript"],
     "role": "Built the task list logic",
     "screenshot": "task-tracker.png",
-    "link": "https://github.com/vxrlyjoyce-cpu/task-tracker"
+    "link": "https://github.com"
   }
 ]
