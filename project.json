@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Personal Portfolio Website",
+    "description": "A responsive portfolio built with HTML, CSS and JavaScript and hosted on GitHub Pages.",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "role": "Designer and developer",
+    "screenshot": "portfolio.png",
+    "link": "https://github.com/vxrlyjoyce-cpu/vxrlyjoyce-cpu.github.io"
+  },
+  {
+    "title": "Grade Calculator",
+    "description": "A small web app that computes a student's average grade from entered scores.",
+    "technologies": ["HTML", "JavaScript"],
+    "role": "Solo developer",
+    "screenshot": "grade-calculator.png",
+    "link": "https://github.com/vxrlyjoyce-cpu/grade-calculator"
+  },
+  {
+    "title": "Student Task Tracker",
+    "description": "A to-do list where students can add, finish and delete tasks.",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "role": "Built the task list logic",
+    "screenshot": "task-tracker.png",
+    "link": "https://github.com/vxrlyjoyce-cpu/task-tracker"
+  }
+]
