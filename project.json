@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Personal Portfolio Website",
+    "description": "A responsive portfolio built with HTML, CSS and JavaScript and hosted on GitHub Pages.",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "role": "Designer and developer",
+    "screenshot": "portfolio.png",
+    "link": "https://github.com"
+  },
+  {
+    "title": "Grade Calculator",
+    "description": "A small web app that computes a student's average grade from entered scores.",
+    "technologies": ["HTML", "JavaScript"],
+    "role": "Solo developer",
+    "screenshot": "grade-calculator.png",
+    "link": "https://github.com"
+  },
+  {
+    "title": "Student Task Tracker",
+    "description": "A to-do list where students can add, finish and delete tasks.",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "role": "Built the task list logic",
+    "screenshot": "task-tracker.png",
+    "link": "https://github.com"
+  },
+  {
+    "repo": "petcare-app2",
+    "title": "PawTrack Pet Care App",
+    "description": "An installable pet-care journal with pet profiles and photos, meal and exercise logs, medication and wellness entries, weight trends and a care schedule.",
+    "technologies": ["HTML", "CSS", "JavaScript", "Node.js", "Netlify"]
+  }
+]
